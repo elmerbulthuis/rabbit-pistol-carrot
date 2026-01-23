@@ -4,7 +4,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "typescript file",
+      "name": "TypeScript file",
       "program": "${file}",
       "args": [],
       "cwd": "${workspaceFolder}",
@@ -16,7 +16,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "feature file",
+      "name": "Feature file",
       "runtimeExecutable": "npx",
       "program": "cucumber-js",
       "args": ["--profile", "debug", "${file}"],
