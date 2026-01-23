@@ -148,7 +148,11 @@
     </script>
 
     <script>
-      document.addEventListener("keydown", (event) => {
+      document.addEventListener("keydown", async (event) => {
+        await document.documentElement.requestFullscreen({
+          navigationUI: "hide",
+        });
+
         switch (event.key) {
           case "ArrowRight": {
             const id = document.querySelector(
