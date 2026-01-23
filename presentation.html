@@ -28,7 +28,6 @@
         margin: 0;
         padding: 0;
         height: 100%;
-        overflow: hidden;
       }
 
       h1 {
@@ -65,10 +64,13 @@
       }
 
       .slide-container {
+        display: none;
+      }
+
+      .slide-container:has(.slide:target) {
         display: flex;
         height: 100%;
-        flex-wrap: nowrap;
-        transition: transform 200ms ease-in;
+        overflow: hidden;
       }
 
       .slide {
@@ -85,7 +87,7 @@
         padding: 2vw;
       }
 
-      .slide.current {
+      .slide:target {
         filter: blur(0px);
       }
 
@@ -105,16 +107,53 @@
         );
       }
     </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (location.hash === "") {
+          const id = document.querySelector(".slide-container .slide")?.id;
+          if (id != null) {
+            location.hash = id;
+          }
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        switch (event.key) {
+          case "ArrowRight": {
+            const id = document.querySelector(
+              ".slide-container .slide:target + .slide",
+            )?.id;
+            if (id != null) {
+              location.hash = id;
+            }
+            break;
+          }
+
+          case "ArrowLeft": {
+            const id = document.querySelector(
+              ".slide-container .slide:has(+ .slide:target)",
+            )?.id;
+            if (id != null) {
+              location.hash = id;
+            }
+            break;
+          }
+        }
+      });
+    </script>
   </head>
+
   <body>
     <div class="slide-container">
-      <div class="slide luvdasun-background">
+      <div id="slide-1" class="slide luvdasun-background">
         <div>
           <h1>Specification by Example (SbE)</h1>
           <h3>Bridging the gap between product and development</h3>
         </div>
       </div>
-      <div class="slide">
+
+      <div id="slide-2" class="slide">
         <div>
           <p>We all know this game</p>
           <ul>
@@ -124,7 +163,8 @@
           </ul>
         </div>
       </div>
-      <div class="slide">
+
+      <div id="slide-3" class="slide">
         <div>
           <p>We make a variation</p>
           <ul>
@@ -135,64 +175,5 @@
         </div>
       </div>
     </div>
-
-    <script>
-      document
-        .querySelector(".slide-container .slide")
-        .classList.add("current");
-
-      document.addEventListener("keydown", (event) => {
-        const currentSlide = document.querySelector(
-          ".slide-container .slide.current",
-        );
-        if (currentSlide == null) {
-          return;
-        }
-
-        switch (event.key) {
-          case "ArrowRight": {
-            const nextSlide = document.querySelector(
-              ".slide-container .slide.current + .slide",
-            );
-
-            if (nextSlide != null) {
-              currentSlide.classList.remove("current");
-              nextSlide.classList.add("current");
-            }
-
-            updateSlides();
-            break;
-          }
-
-          case "ArrowLeft": {
-            const previousSlide = document.querySelector(
-              ".slide-container .slide:has(+ .slide.current)",
-            );
-
-            if (previousSlide != null) {
-              currentSlide.classList.remove("current");
-              previousSlide.classList.add("current");
-            }
-
-            updateSlides();
-            break;
-          }
-        }
-      });
-
-      function updateSlides() {
-        const slideContainer = document.querySelector(".slide-container");
-        if (slideContainer == null) {
-          return;
-        }
-
-        const slides = document.querySelectorAll(".slide-container .slide");
-        slides.forEach((slide, index) => {
-          if (slide.classList.contains("current")) {
-            slideContainer.style.transform = `translateX(-${index * 100}%)`;
-          }
-        });
-      }
-    </script>
   </body>
 </html>
