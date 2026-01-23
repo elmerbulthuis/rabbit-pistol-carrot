@@ -6,7 +6,6 @@ import * as hooks from "../hooks.js";
 
 Given("two people are playing the game", () => {
   const game = new TwoPlayerGame();
-
   hooks.setTwoPlayerGame(game);
 });
 
@@ -21,46 +20,71 @@ When("a round is played", () => {
   const game = hooks.getTwoPlayerGame();
   const choices = hooks.getPlayerChoices();
 
-  assert(game != null);
   assert.equal(choices.length, 2);
 
   const [firstChoicePair, secondChoicePair] = choices;
   assert(firstChoicePair != null);
   assert(secondChoicePair != null);
 
-  const [firstName, firstChoice] = firstChoicePair;
-  const [secondName, secondChoice] = secondChoicePair;
+  const [_firstName, firstChoice] = firstChoicePair;
+  const [_secondName, secondChoice] = secondChoicePair;
 
-  const result = game.play(firstChoice, secondChoice);
+  game.playRound(firstChoice, secondChoice);
+});
 
-  switch (result) {
-    case "firstWins":
-      hooks.setPlayerResult(firstName, "win");
-      hooks.setPlayerResult(secondName, "lose");
+Then("{word} should win", (playerName: string) => {
+  const game = hooks.getTwoPlayerGame();
+  const choices = hooks.getPlayerChoices();
+
+  assert.equal(choices.length, 2);
+
+  const [firstChoicePair, secondChoicePair] = choices;
+  assert(firstChoicePair != null);
+  assert(secondChoicePair != null);
+
+  const [firstName, _firstChoice] = firstChoicePair;
+  const [secondName, _secondChoice] = secondChoicePair;
+  const result = game.getResult();
+
+  switch (playerName) {
+    case firstName:
+      assert.equal(result, "firstWins");
       break;
-    case "secondWins":
-      hooks.setPlayerResult(firstName, "lose");
-      hooks.setPlayerResult(secondName, "win");
+    case secondName:
+      assert.equal(result, "secondWins");
       break;
-    case "tie":
-      hooks.setPlayerResult(firstName, "draw");
-      hooks.setPlayerResult(secondName, "draw");
-      break;
+    default:
+      assert.fail(`Player name ${playerName} not found`);
   }
 });
 
 Then("{word} should lose", (playerName: string) => {
-  const playerResult = hooks.getPlayerResult(playerName);
-  assert.equal(playerResult, "lose");
-});
+  const game = hooks.getTwoPlayerGame();
+  const choices = hooks.getPlayerChoices();
 
-Then("{word} should win", (playerName: string) => {
-  const playerResult = hooks.getPlayerResult(playerName);
-  assert.equal(playerResult, "win");
+  assert.equal(choices.length, 2);
+
+  const [firstChoicePair, secondChoicePair] = choices;
+  assert(firstChoicePair != null);
+  assert(secondChoicePair != null);
+
+  const [firstName, _firstChoice] = firstChoicePair;
+  const [secondName, _secondChoice] = secondChoicePair;
+  const result = game.getResult();
+
+  switch (playerName) {
+    case firstName:
+      assert.equal(result, "secondWins");
+      break;
+    case secondName:
+      assert.equal(result, "firstWins");
+      break;
+    default:
+      assert.fail(`Player name ${playerName} not found`);
+  }
 });
 
 Then("the game should be a draw", () => {
-  const playerResults = hooks.getPlayerResults();
-  assert(playerResults.length > 0);
-  assert(playerResults.every(([, result]) => result === "draw"));
+  const game = hooks.getTwoPlayerGame();
+  assert.equal(game.getResult(), "tie");
 });

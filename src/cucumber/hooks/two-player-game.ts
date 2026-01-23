@@ -1,4 +1,5 @@
 import * as games from "../../games.js";
+import * as utilities from "../../utilities.js";
 import { World } from "../world.js";
 
 const storage = new WeakMap<World, games.TwoPlayerGame>();
@@ -10,5 +11,7 @@ export function setTwoPlayerGame(game: games.TwoPlayerGame) {
 
 export function getTwoPlayerGame() {
   const world = World.current;
-  return storage.get(world);
+  const result = storage.get(world);
+  utilities.assertDefined(result);
+  return result;
 }
