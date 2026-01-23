@@ -4,7 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rabbit-Pistol-Carrot</title>
+
+    <title>🐰🔫🥕</title>
 
     <style>
       :root {
@@ -14,20 +15,27 @@
         --luvdasun-color-4: #87003d;
         --luvdasun-color-5: #71003d;
       }
+    </style>
 
+    <style>
       html {
         height: 100%;
-        background-color: black;
-        color: white;
-        font-family: sans-serif;
-        font-size: 6vw;
-        line-height: 0.9;
       }
 
       body {
         margin: 0;
         padding: 0;
         height: 100%;
+      }
+    </style>
+
+    <style>
+      html {
+        background-color: black;
+        color: white;
+        font-family: sans-serif;
+        font-size: 6vw;
+        line-height: 0.9;
       }
 
       h1 {
@@ -62,33 +70,46 @@
         padding: 0;
         padding-left: 1em;
       }
+    </style>
+
+    <style>
+      html.loaded {
+        scroll-behavior: smooth;
+        overflow: hidden;
+      }
 
       .slide-container {
         display: none;
       }
-
       .slide-container:has(.slide:target) {
         display: flex;
         height: 100%;
-        overflow: hidden;
       }
 
       .slide {
-        box-sizing: border-box;
-        width: 100%;
-        flex-shrink: 0;
-        background-color: #222;
-        overflow: hidden;
         display: flex;
+        width: 100%;
+        overflow: hidden;
+        flex-shrink: 0;
         align-items: center;
         justify-content: center;
-        filter: blur(10px);
-        transition: filter 500ms ease-out;
-        padding: 2vw;
+      }
+    </style>
+
+    <style>
+      .slide {
+        opacity: 0.5;
+        transition: opacity 600ms ease-out;
       }
 
       .slide:target {
-        filter: blur(0px);
+        opacity: 1;
+      }
+    </style>
+
+    <style>
+      .slide {
+        background-color: #222;
       }
 
       .luvdasun-background {
@@ -117,7 +138,15 @@
           }
         }
       });
+    </script>
 
+    <script>
+      window.addEventListener("load", () => {
+        document.documentElement.classList.add("loaded");
+      });
+    </script>
+
+    <script>
       document.addEventListener("keydown", (event) => {
         switch (event.key) {
           case "ArrowRight": {
@@ -146,6 +175,12 @@
 
   <body>
     <div class="slide-container">
+      <div id="welcome" class="slide">
+        <div>
+          <h1>Welcome!</h1>
+        </div>
+      </div>
+
       <div id="slide-1" class="slide luvdasun-background">
         <div>
           <h1>Specification by Example (SbE)</h1>
