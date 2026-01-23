@@ -34,11 +34,11 @@ When("a round is played", function () {
   const result = game.play(firstChoice, secondChoice);
 
   switch (result) {
-    case "playerOneWins":
+    case "firstWins":
       extensions.setPlayerResult(this, firstName, "win");
       extensions.setPlayerResult(this, secondName, "lose");
       break;
-    case "playerTwoWins":
+    case "secondWins":
       extensions.setPlayerResult(this, firstName, "lose");
       extensions.setPlayerResult(this, secondName, "win");
       break;

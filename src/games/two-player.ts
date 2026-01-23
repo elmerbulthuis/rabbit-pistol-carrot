@@ -1,24 +1,21 @@
 import { GameChoice } from "./choices.js";
 
-export type TwoPlayerGameResult = "playerOneWins" | "playerTwoWins" | "tie";
+export type TwoPlayerGameResult = "firstWins" | "secondWins" | "tie";
 
 export class TwoPlayerGame {
-  play(
-    playerOneChoice: GameChoice,
-    player2Choice: GameChoice,
-  ): TwoPlayerGameResult {
-    if (playerOneChoice === player2Choice) {
+  play(firstChoice: GameChoice, secondChoice: GameChoice): TwoPlayerGameResult {
+    if (firstChoice === secondChoice) {
       return "tie";
     }
 
     if (
-      (playerOneChoice === "rabbit" && player2Choice === "carrot") ||
-      (playerOneChoice === "carrot" && player2Choice === "pistol") ||
-      (playerOneChoice === "pistol" && player2Choice === "rabbit")
+      (firstChoice === "rabbit" && secondChoice === "carrot") ||
+      (firstChoice === "carrot" && secondChoice === "pistol") ||
+      (firstChoice === "pistol" && secondChoice === "rabbit")
     ) {
-      return "playerOneWins";
+      return "firstWins";
     } else {
-      return "playerTwoWins";
+      return "secondWins";
     }
   }
 }
