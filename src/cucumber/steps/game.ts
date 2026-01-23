@@ -1,25 +1,25 @@
 import assert from "node:assert";
 import * as games from "../../games.js";
 import { TwoPlayerGame } from "../../games.js";
-import * as extensions from "../extensions.js";
+import * as hooks from "../hooks.js";
 import { Given, Then, When } from "../world.js";
 
 Given("two people are playing the game", function () {
   const game = new TwoPlayerGame();
 
-  extensions.setTwoPlayerGame(this, game);
+  hooks.setTwoPlayerGame(game);
 });
 
 Given(
   "{word} will play {word}",
   function (playerName: string, playerChoice: games.GameChoice) {
-    extensions.setPlayerChoice(this, playerName, playerChoice);
+    hooks.setPlayerChoice(playerName, playerChoice);
   },
 );
 
 When("a round is played", function () {
-  const game = extensions.getTwoPlayerGame(this);
-  const choices = extensions.getPlayerChoices(this);
+  const game = hooks.getTwoPlayerGame();
+  const choices = hooks.getPlayerChoices();
 
   assert(game != null);
   assert.equal(choices.length, 2);
@@ -35,32 +35,32 @@ When("a round is played", function () {
 
   switch (result) {
     case "firstWins":
-      extensions.setPlayerResult(this, firstName, "win");
-      extensions.setPlayerResult(this, secondName, "lose");
+      hooks.setPlayerResult(firstName, "win");
+      hooks.setPlayerResult(secondName, "lose");
       break;
     case "secondWins":
-      extensions.setPlayerResult(this, firstName, "lose");
-      extensions.setPlayerResult(this, secondName, "win");
+      hooks.setPlayerResult(firstName, "lose");
+      hooks.setPlayerResult(secondName, "win");
       break;
     case "tie":
-      extensions.setPlayerResult(this, firstName, "draw");
-      extensions.setPlayerResult(this, secondName, "draw");
+      hooks.setPlayerResult(firstName, "draw");
+      hooks.setPlayerResult(secondName, "draw");
       break;
   }
 });
 
 Then("{word} should lose", function (playerName: string) {
-  const playerResult = extensions.getPlayerResult(this, playerName);
+  const playerResult = hooks.getPlayerResult(playerName);
   assert.equal(playerResult, "lose");
 });
 
 Then("{word} should win", function (playerName: string) {
-  const playerResult = extensions.getPlayerResult(this, playerName);
+  const playerResult = hooks.getPlayerResult(playerName);
   assert.equal(playerResult, "win");
 });
 
 Then("the game should be a draw", function () {
-  const playerResults = extensions.getPlayerResults(this);
+  const playerResults = hooks.getPlayerResults();
   assert(playerResults.length > 0);
   assert(playerResults.every(([, result]) => result === "draw"));
 });

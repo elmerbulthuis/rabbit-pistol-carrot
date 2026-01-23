@@ -5,10 +5,10 @@ export type PlayerResult = "win" | "lose" | "draw";
 const storage = new WeakMap<World, Map<string, PlayerResult>>();
 
 export function setPlayerResult(
-  world: World,
   playerName: string,
   playerResult: PlayerResult,
 ) {
+  const world = World.current;
   if (!storage.has(world)) {
     storage.set(world, new Map());
   }
@@ -16,10 +16,12 @@ export function setPlayerResult(
   playerResults.set(playerName, playerResult);
 }
 
-export function getPlayerResult(world: World, playerName: string) {
+export function getPlayerResult(playerName: string) {
+  const world = World.current;
   return storage.get(world)?.get(playerName);
 }
 
-export function getPlayerResults(world: World) {
+export function getPlayerResults() {
+  const world = World.current;
   return [...(storage.get(world) ?? [])];
 }

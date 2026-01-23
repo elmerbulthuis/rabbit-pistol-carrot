@@ -1,43 +1,23 @@
 import * as cucumber from "@cucumber/cucumber";
 import { second } from "msecs";
-import assert from "node:assert";
+import { AsyncLocalStorage } from "node:async_hooks";
 
-type Cleanup = () => unknown | Promise<unknown>;
+const worldLocalStorage = new AsyncLocalStorage<World>();
 
-interface WorldParameters {}
+export interface WorldParameters {}
 
 export class World extends cucumber.World<WorldParameters> {
-  //#region cleanup
-
-  private readonly cleanups = new Array<Cleanup>();
-
-  public registerCleanup(disposer: Cleanup) {
-    this.cleanups.push(disposer);
-  }
-
-  public countCleanups() {
-    return this.cleanups.length;
-  }
-
-  public async cleanupAll() {
-    let cleanup: Cleanup | undefined;
-    while ((cleanup = this.cleanups.pop()) != null) {
-      await cleanup();
+  public static get current(): World {
+    const world = worldLocalStorage.getStore();
+    if (world == null) {
+      throw new TypeError("no current world");
     }
+    return world;
   }
-
-  //#endregion
 }
+
 cucumber.setWorldConstructor(World);
 cucumber.setDefaultTimeout(5 * second);
-
-cucumber.Before<World>(function () {
-  assert.equal(this.countCleanups(), 0);
-});
-
-cucumber.After<World>(async function () {
-  await this.cleanupAll();
-});
 
 export const Given = <T extends any[]>(
   pattern: string,
@@ -59,3 +39,11 @@ export const Then = <T extends any[]>(
 ) => {
   cucumber.Then<World>(pattern, code);
 };
+
+cucumber.setDefinitionFunctionWrapper(function <T extends any[]>(
+  fn: (this: World, ...args: T) => void | Promise<void>,
+) {
+  return async function (this: World, ...args: T) {
+    return await worldLocalStorage.run(this, () => fn.apply(this, args));
+  };
+});
