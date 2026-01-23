@@ -16,6 +16,6 @@ export function setPlayerChoice(
   map.set(playerName, choice);
 }
 
-export function getTwoPlayerGame(world: World, playerName: string) {
+export function getPlayerChoice(world: World, playerName: string) {
   return storage.get(world)?.get(playerName);
 }
