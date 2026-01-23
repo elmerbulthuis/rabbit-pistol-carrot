@@ -7,9 +7,21 @@
     <title>Rabbit-Pistol-Carrot</title>
 
     <style>
+      :root {
+        --luvdasun-color-1: #ec003d;
+        --luvdasun-color-2: #c1003d;
+        --luvdasun-color-3: #a2003d;
+        --luvdasun-color-4: #87003d;
+        --luvdasun-color-5: #71003d;
+      }
+
       html {
         height: 100%;
+        background-color: black;
         color: white;
+        font-family: sans-serif;
+        font-size: 6vw;
+        line-height: 0.9;
       }
 
       body {
@@ -17,6 +29,39 @@
         padding: 0;
         height: 100%;
         overflow: hidden;
+      }
+
+      h1 {
+        font-weight: bold;
+        font-size: 180%;
+        text-align: center;
+        margin: 1vw;
+        padding: 0;
+      }
+      h2 {
+        font-weight: bold;
+        font-size: 140%;
+        text-align: center;
+        margin: 1vw;
+        padding: 0;
+      }
+      h3 {
+        font-weight: bold;
+        font-size: 100%;
+        text-align: center;
+        margin: 1vw;
+        padding: 0;
+      }
+      p {
+        font-weight: normal;
+        font-size: 100%;
+        margin: 1vw;
+        padding: 0;
+      }
+      ul {
+        margin: 1vw;
+        padding: 0;
+        padding-left: 1em;
       }
 
       .slide-container {
@@ -27,17 +72,68 @@
       }
 
       .slide {
+        box-sizing: border-box;
         width: 100%;
         flex-shrink: 0;
         background-color: #222;
         overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        filter: blur(10px);
+        transition: filter 500ms ease-out;
+        padding: 2vw;
+      }
+
+      .slide.current {
+        filter: blur(0px);
+      }
+
+      .luvdasun-background {
+        background: linear-gradient(
+          180deg,
+          var(--luvdasun-color-1) 0%,
+          var(--luvdasun-color-1) 20%,
+          var(--luvdasun-color-2) 20%,
+          var(--luvdasun-color-2) 40%,
+          var(--luvdasun-color-3) 40%,
+          var(--luvdasun-color-3) 60%,
+          var(--luvdasun-color-4) 60%,
+          var(--luvdasun-color-4) 80%,
+          var(--luvdasun-color-5) 80%,
+          var(--luvdasun-color-5) 100%
+        );
       }
     </style>
   </head>
   <body>
     <div class="slide-container">
-      <div class="slide">a</div>
-      <div class="slide">b</div>
+      <div class="slide luvdasun-background">
+        <div>
+          <h1>Specification by Example (SbE)</h1>
+          <h3>Bridging the gap between product and development</h3>
+        </div>
+      </div>
+      <div class="slide">
+        <div>
+          <p>We all know this game</p>
+          <ul>
+            <li>🪨 Rock</li>
+            <li>📄 Paper</li>
+            <li>✂️ Scissors</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide">
+        <div>
+          <p>We make a variation</p>
+          <ul>
+            <li>🐰 Rabbit</li>
+            <li>🔫 Pistol</li>
+            <li>🥕 Carrot</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <script>
