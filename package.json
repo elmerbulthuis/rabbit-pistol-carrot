@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.6.0"
+  },
+  "dependencies": {
+    "@types/node": "^25.0.10",
+    "msecs": "^1.0.4"
+  }
+}

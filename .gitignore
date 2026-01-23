@@ -9,6 +9,8 @@
 
 # directories
 
+node_modules/
+
 # directories exceptions
 
 !.vscode/

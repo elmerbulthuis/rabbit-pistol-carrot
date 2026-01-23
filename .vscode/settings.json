@@ -6,6 +6,7 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "cucumber.features": ["features/**/*.feature"],
+  "cucumber.glue": ["src/cucumber/**/*.ts"],
   "[cucumber]": {
     "editor.defaultFormatter": "CucumberOpen.cucumber-official"
   }
