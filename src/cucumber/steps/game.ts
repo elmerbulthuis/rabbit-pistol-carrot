@@ -1,10 +1,10 @@
+import { Given, Then, When } from "@cucumber/cucumber";
 import assert from "node:assert";
 import * as games from "../../games.js";
 import { TwoPlayerGame } from "../../games.js";
 import * as hooks from "../hooks.js";
-import { Given, Then, When } from "../world.js";
 
-Given("two people are playing the game", function () {
+Given("two people are playing the game", () => {
   const game = new TwoPlayerGame();
 
   hooks.setTwoPlayerGame(game);
@@ -12,12 +12,12 @@ Given("two people are playing the game", function () {
 
 Given(
   "{word} will play {word}",
-  function (playerName: string, playerChoice: games.GameChoice) {
+  (playerName: string, playerChoice: games.GameChoice) => {
     hooks.setPlayerChoice(playerName, playerChoice);
   },
 );
 
-When("a round is played", function () {
+When("a round is played", () => {
   const game = hooks.getTwoPlayerGame();
   const choices = hooks.getPlayerChoices();
 
@@ -49,17 +49,17 @@ When("a round is played", function () {
   }
 });
 
-Then("{word} should lose", function (playerName: string) {
+Then("{word} should lose", (playerName: string) => {
   const playerResult = hooks.getPlayerResult(playerName);
   assert.equal(playerResult, "lose");
 });
 
-Then("{word} should win", function (playerName: string) {
+Then("{word} should win", (playerName: string) => {
   const playerResult = hooks.getPlayerResult(playerName);
   assert.equal(playerResult, "win");
 });
 
-Then("the game should be a draw", function () {
+Then("the game should be a draw", () => {
   const playerResults = hooks.getPlayerResults();
   assert(playerResults.length > 0);
   assert(playerResults.every(([, result]) => result === "draw"));
