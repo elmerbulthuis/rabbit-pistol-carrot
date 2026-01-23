@@ -14,9 +14,22 @@ export function setPlayerChoice(playerName: string, choice: games.GameChoice) {
   map.set(playerName, choice);
 }
 
-export function getPlayerChoices() {
+export function getPlayerChoiceCount() {
   const world = World.current;
-  const result = storage.get(world);
-  utilities.assertDefined(result);
-  return [...result];
+  const count = storage.get(world)?.size ?? 0;
+  return count;
+}
+
+export function getPlayerChoice(playerName: string) {
+  const world = World.current;
+  const map = storage.get(world);
+  utilities.assertDefined(map);
+  const choice = map.get(playerName);
+  utilities.assertDefined(choice);
+  return choice;
+}
+
+export function resetPlayerChoice() {
+  const world = World.current;
+  storage.delete(world);
 }

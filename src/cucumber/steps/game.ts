@@ -4,46 +4,38 @@ import * as games from "../../games.js";
 import { TwoPlayerGame } from "../../games.js";
 import * as hooks from "../hooks.js";
 
-Given("two people are playing the game", () => {
-  const game = new TwoPlayerGame();
-  hooks.setTwoPlayerGame(game);
-});
-
 Given(
-  "{word} will play {word}",
-  (playerName: string, playerChoice: games.GameChoice) => {
-    hooks.setPlayerChoice(playerName, playerChoice);
+  "{word} and {word} play the game",
+  (firstName: string, secondName: string) => {
+    const game = new TwoPlayerGame();
+    hooks.setTwoPlayerGame(game);
+    hooks.addPlayer(firstName);
+    hooks.addPlayer(secondName);
   },
 );
 
-When("a round is played", () => {
-  const game = hooks.getTwoPlayerGame();
-  const choices = hooks.getPlayerChoices();
+When(
+  "{word} plays {word}",
+  (playerName: string, playerChoice: games.GameChoice) => {
+    const game = hooks.getTwoPlayerGame();
+    const [firstName, secondName] = hooks.getTwoPlayerNames();
 
-  assert.equal(choices.length, 2);
+    hooks.setPlayerChoice(playerName, playerChoice);
 
-  const [firstChoicePair, secondChoicePair] = choices;
-  assert(firstChoicePair != null);
-  assert(secondChoicePair != null);
+    if (hooks.getPlayerChoiceCount() === 2) {
+      const firstChoice = hooks.getPlayerChoice(firstName);
+      const secondChoice = hooks.getPlayerChoice(secondName);
+      hooks.resetPlayerChoice();
 
-  const [_firstName, firstChoice] = firstChoicePair;
-  const [_secondName, secondChoice] = secondChoicePair;
-
-  game.playRound(firstChoice, secondChoice);
-});
+      game.playRound(firstChoice, secondChoice);
+    }
+  },
+);
 
 Then("{word} should win", (playerName: string) => {
   const game = hooks.getTwoPlayerGame();
-  const choices = hooks.getPlayerChoices();
+  const [firstName, secondName] = hooks.getTwoPlayerNames();
 
-  assert.equal(choices.length, 2);
-
-  const [firstChoicePair, secondChoicePair] = choices;
-  assert(firstChoicePair != null);
-  assert(secondChoicePair != null);
-
-  const [firstName, _firstChoice] = firstChoicePair;
-  const [secondName, _secondChoice] = secondChoicePair;
   const result = game.getResult();
 
   switch (playerName) {
@@ -60,16 +52,8 @@ Then("{word} should win", (playerName: string) => {
 
 Then("{word} should lose", (playerName: string) => {
   const game = hooks.getTwoPlayerGame();
-  const choices = hooks.getPlayerChoices();
+  const [firstName, secondName] = hooks.getTwoPlayerNames();
 
-  assert.equal(choices.length, 2);
-
-  const [firstChoicePair, secondChoicePair] = choices;
-  assert(firstChoicePair != null);
-  assert(secondChoicePair != null);
-
-  const [firstName, _firstChoice] = firstChoicePair;
-  const [secondName, _secondChoice] = secondChoicePair;
   const result = game.getResult();
 
   switch (playerName) {
