@@ -19,3 +19,7 @@ export function setPlayerResult(
 export function getPlayerResult(world: World, playerName: string) {
   return storage.get(world)?.get(playerName);
 }
+
+export function getPlayerResults(world: World) {
+  return [...(storage.get(world) ?? [])];
+}

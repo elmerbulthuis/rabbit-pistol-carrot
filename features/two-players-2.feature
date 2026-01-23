@@ -1,8 +1,4 @@
-Feature: Carrot Pistol Rabbit
-  A two-player game with the same rules as Rock Paper Scissors
-  Rabbit beats Carrot
-  Carrot beats Pistol
-  Pistol beats Rabbit
+Feature: Carrot Pistol Rabbit rules with two players
 
   Background:
     Given two people are playing the game

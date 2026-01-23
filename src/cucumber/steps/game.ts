@@ -49,12 +49,18 @@ When("a round is played", function () {
   }
 });
 
-Then("{word} should lose", function (playerName: string) {});
+Then("{word} should lose", function (playerName: string) {
+  const playerResult = extensions.getPlayerResult(this, playerName);
+  assert.equal(playerResult, "lose");
+});
 
 Then("{word} should win", function (playerName: string) {
-  // Write code here that turns the phrase above into concrete actions
+  const playerResult = extensions.getPlayerResult(this, playerName);
+  assert.equal(playerResult, "win");
 });
 
 Then("the game should be a draw", function () {
-  // Write code here that turns the phrase above into concrete actions
+  const playerResults = extensions.getPlayerResults(this);
+  assert(playerResults.length > 0);
+  assert(playerResults.every(([, result]) => result === "draw"));
 });
