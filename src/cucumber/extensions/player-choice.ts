@@ -10,12 +10,12 @@ export function setPlayerChoice(
 ) {
   let map = storage.get(world);
   if (map == null) {
-    map = new Map<string, games.GameChoice>();
+    map = new Map();
     storage.set(world, map);
   }
   map.set(playerName, choice);
 }
 
-export function getPlayerChoice(world: World, playerName: string) {
-  return storage.get(world)?.get(playerName);
+export function getPlayerChoices(world: World) {
+  return [...(storage.get(world) ?? [])];
 }

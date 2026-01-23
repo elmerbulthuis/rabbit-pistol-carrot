@@ -1,6 +1,7 @@
 # files
 
 .*
+*.tsbuildinfo
 
 # files exceptions 
 
@@ -10,7 +11,10 @@
 # directories
 
 node_modules/
+transpiled/
+typed/
 
 # directories exceptions
 
 !.vscode/
+!.github/

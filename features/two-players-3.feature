@@ -8,26 +8,26 @@ Feature: Carrot Pistol Rabbit
     Given two people are playing the game
 
   Scenario Outline: Player 1 wins
-    Given player 1 will play <win choice>
-    And player 2 will play <lose choice>
+    Given Alice will play <win choice>
+    And Bob will play <lose choice>
     When a round is played
-    Then player 1 should win
-    And player 2 should lose
+    Then Alice should win
+    And Bob should lose
 
     Examples:
       | win choice | lose choice |
-      | Rabbit     | Carrot      |
-      | Carrot     | Pistol      |
-      | Pistol     | Rabbit      |
+      | rabbit     | carrot      |
+      | carrot     | pistol      |
+      | pistol     | rabbit      |
 
   Scenario Outline: Draw
-    Given player 1 will play <draw choice>
-    And player 2 will play <draw choice>
+    Given Alice will play <draw choice>
+    And Bob will play <draw choice>
     When a round is played
     Then the game should be a draw
 
     Examples:
       | draw choice |
-      | Rabbit      |
-      | Carrot      |
-      | Pistol      |
+      | rabbit      |
+      | carrot      |
+      | pistol      |

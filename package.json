@@ -1,6 +1,19 @@
 {
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "tsc": "tsc --build",
+    "tsc-watch": "npm run tsc -- --watch",
+    "test": "node --test transpiled/**/*.test.js",
+    "test-sbe": "cucumber-js features",
+    "spelling": "cspell",
+    "formatting": "prettier --check --ignore-unknown *",
+    "fix-formatting": "prettier --write --ignore-unknown *"
+  },
   "devDependencies": {
-    "@cucumber/cucumber": "^12.6.0"
+    "@cucumber/cucumber": "^12.6.0",
+    "@tsconfig/node24": "^24.0.4",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "@types/node": "^25.0.10",
