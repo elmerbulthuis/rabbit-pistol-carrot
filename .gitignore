@@ -13,6 +13,7 @@
 node_modules/
 transpiled/
 typed/
+coverage/
 
 # directories exceptions
 

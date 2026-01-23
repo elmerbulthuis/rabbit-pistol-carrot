@@ -25,6 +25,18 @@
       "outFiles": ["${workspaceFolder}/packages/*/transpiled/**/*.js"],
       "preLaunchTask": "tsc-watch",
       "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Coverage",
+      "runtimeExecutable": "npm",
+      "args": ["run", "coverage"],
+      "cwd": "${workspaceFolder}",
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/packages/*/transpiled/**/*.js"],
+      "preLaunchTask": "tsc-watch",
+      "outputCapture": "std"
     }
   ]
 }
