@@ -1,0 +1,11 @@
+default:
+  parallel: 4
+  import:
+    - transpiled/cucumber.js
+  tags: not @skip
+
+debug:
+  parallel: 1
+  import:
+    - transpiled/cucumber.js
+  tags: not @skip

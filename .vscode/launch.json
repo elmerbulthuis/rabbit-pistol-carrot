@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "typescript file",
+      "program": "${file}",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/packages/*/transpiled/**/*.js"],
+      "preLaunchTask": "tsc-watch",
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "feature file",
+      "runtimeExecutable": "npx",
+      "program": "cucumber-js",
+      "args": ["--profile", "debug", "${file}"],
+      "cwd": "${workspaceFolder}",
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/packages/*/transpiled/**/*.js"],
+      "preLaunchTask": "tsc-watch",
+      "outputCapture": "std"
+    }
+  ]
+}

@@ -1,3 +1,20 @@
+# files
+
 .*
+*.tsbuildinfo
+
+# files exceptions 
 
 !.gitignore
+!.editorconfig
+
+# directories
+
+node_modules/
+transpiled/
+typed/
+
+# directories exceptions
+
+!.vscode/
+!.github/
