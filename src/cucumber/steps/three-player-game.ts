@@ -1,4 +1,4 @@
-import { Given, When } from "@cucumber/cucumber";
+import { Given } from "@cucumber/cucumber";
 import * as hooks from "../hooks.js";
 
 Given(
@@ -7,12 +7,5 @@ Given(
     hooks.addPlayer(firstName);
     hooks.addPlayer(secondName);
     hooks.addPlayer(thirdName);
-  },
-);
-
-When(
-  "{word} plays againsty {word}",
-  (playerName: string, otherPlayerName: string) => {
-    // Write code here that turns the phrase above into concrete actions
   },
 );
