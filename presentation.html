@@ -63,33 +63,39 @@
         font-size: 180%;
         margin: 1vw;
         padding: 0;
+        line-height: 0.8;
       }
       h2 {
         font-weight: bold;
         font-size: 140%;
         margin: 1vw;
         padding: 0;
+        line-height: 0.8;
       }
       h3 {
         font-weight: bold;
         font-size: 100%;
         margin: 1vw;
         padding: 0;
+        line-height: 1;
       }
       p {
         font-weight: normal;
         font-size: 100%;
         margin: 1vw;
         padding: 0;
+        line-height: 1;
       }
       ul {
         margin: 1vw;
         padding: 0;
         padding-left: 1em;
+        line-height: 1;
       }
       pre {
         margin: 1vw;
         padding: 1vw;
+        line-height: 1;
         background-color: rgba(255, 255, 255, 0.1);
         border-radius: 1vw;
         border-color: rgba(255, 255, 255, 0.2);
@@ -316,19 +322,7 @@ rabbit-pistol-carrot</pre
             <li>Epic</li>
             <li>Feature</li>
             <li>Story</li>
-            <li>🕳️</li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="the-gap-5" class="slide gradient-background">
-        <div>
-          <h1>The gap!</h1>
-          <ul>
-            <li>Epic</li>
-            <li>Feature</li>
-            <li>Story</li>
-            <li>🕳️</li>
+            <li></li>
             <li>Implementation</li>
           </ul>
         </div>
@@ -383,7 +377,7 @@ rabbit-pistol-carrot</pre
           <h2>Scenario</h2>
           <ul>
             <li>Fatima and Harry play the game</li>
-            <li>Fatima plays rock, Harry plays scissors</li>
+            <li>Fatima picks rock, Harry picks scissors</li>
             <li>Fatima wins and Harry loses</li>
           </ul>
         </div>
@@ -396,15 +390,15 @@ rabbit-pistol-carrot</pre
             <li>Epic</li>
             <li>Feature</li>
             <li>Story</li>
-            <li>Scenarios 🍾</li>
+            <li>Scenario 🍾</li>
             <li>Implementation</li>
           </ul>
         </div>
       </div>
 
-      <div id="scenarios" class="slide gradient-background">
+      <div id="scenario" class="slide gradient-background">
         <div>
-          <h1>Scenarios 🍾</h1>
+          <h1>Scenario 🍾</h1>
           <ul>
             <li>Easy to understand by all stakeholders</li>
             <li>Easy to verify</li>
@@ -476,7 +470,7 @@ rabbit-pistol-carrot</pre
           <h2>Scenario (remember?)</h2>
           <ul>
             <li>Fatima and Harry play the game</li>
-            <li>Fatima plays rock, Harry plays scissors</li>
+            <li>Fatima picks rock, Harry picks scissors</li>
             <li>Fatima wins and Harry loses.</li>
           </ul>
         </div>
@@ -491,12 +485,23 @@ rabbit-pistol-carrot</pre
           <pre>
 Scenario: Rock beats scissors
   Given Fatima and Harry play a game
-  When Fatima plays rock
-  And Harry plays scissors
+  When Fatima picks rock
+  And Harry picks scissors
   Then Fatima should win
   And Harry should lose
 </pre
           >
+        </div>
+      </div>
+
+      <div id="there-is-more" class="slide gradient-background">
+        <div>
+          <h1>But there is more!</h1>
+          <ul>
+            <li>Catching bugs</li>
+            <li>Regression</li>
+            <li>Safe refactoring</li>
+          </ul>
         </div>
       </div>
 
@@ -523,6 +528,16 @@ rabbit-pistol-carrot</pre
         </div>
       </div>
 
+      <div id="assignment" class="slide">
+        <div>
+          <h1>Pick your assignment</h1>
+          <ul>
+            <li>Implement three player rules</li>
+            <li>Alternative three player rules</li>
+          </ul>
+        </div>
+      </div>
+
       <div id="sbe-pitfalls" class="slide">
         <div>
           <h1>Some pitfalls</h1>
@@ -535,17 +550,7 @@ rabbit-pistol-carrot</pre
         </div>
       </div>
 
-      <div id="assignment" class="slide">
-        <div>
-          <h1>Pick your assignment</h1>
-          <ul>
-            <li>Implement three player rules</li>
-            <li>Alternative three player rules</li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="thank-you" class="slide text-center luvdasun-background">
+      <div id="thank-you" class="slide text-center gradient-background">
         <div>
           <h1>Thank you!</h1>
           <p>@elmerbulthuis</p>
