@@ -31,6 +31,7 @@
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Inconsolata&family=Open+Sans&display=swap");
 
       html {
         font-family: "Open Sans", sans-serif;
@@ -38,8 +39,14 @@
         font-weight: 400;
         font-style: normal;
         font-variation-settings: "wdth" 100;
-        font-size: 6vw;
-        line-height: 1;
+      }
+
+      pre {
+        font-family: "Inconsolata", monospace;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
       }
     </style>
 
@@ -47,6 +54,8 @@
       html {
         background-color: black;
         color: white;
+        font-size: 6vw;
+        line-height: 1;
       }
 
       h1 {
@@ -79,13 +88,11 @@
         padding-left: 1em;
       }
       pre {
-        font-weight: normal;
-        font-size: 100%;
         margin: 1vw;
         padding: 1vw;
-        background-color: #333;
+        background-color: rgba(255, 255, 255, 0.1);
         border-radius: 1vw;
-        border-color: #444;
+        border-color: rgba(255, 255, 255, 0.2);
         border-style: solid;
         border-width: 2px;
       }
@@ -121,13 +128,13 @@
     </style>
 
     <style>
-      .slide {
-        opacity: 0.5;
-        transition: opacity 600ms ease-out;
+      .slide > div {
+        transition: filter 600ms ease-out;
+        filter: blur(2vw);
       }
 
-      .slide:target {
-        opacity: 1;
+      .slide:target > div {
+        filter: blur(0);
       }
     </style>
 
@@ -141,7 +148,7 @@
       }
 
       .small {
-        font-size: 70%;
+        font-size: 80%;
       }
 
       .luvdasun-background {
@@ -248,8 +255,8 @@ rabbit-pistol-carrot</pre
           <h1>Who are you?</h1>
           <ul>
             <li>Experience</li>
-            <li>Personal thing</li>
             <li>Role</li>
+            <li>Personal thing</li>
           </ul>
         </div>
       </div>
@@ -340,17 +347,18 @@ rabbit-pistol-carrot</pre
 
       <div id="story-example" class="slide small">
         <div>
-          <h2>Story example</h2>
+          <h2>Story</h2>
           <p>
-            As a person in disagreement I want to play the game with the other
-            person so that we have a fair way of settling our disagreement.
+            As a person in disagreement with another I want to play the game
+            with the other person so that we have a fair way of settling our
+            disagreement.
           </p>
         </div>
       </div>
 
       <div id="story-detail-example" class="slide small">
         <div>
-          <h2>Story detail example</h2>
+          <h2>Story detail</h2>
           <p>
             Each player picks a symbol. The player that picks the symbol that
             trumps the other wins. Rock trumps scissors, scissors trumps paper,
@@ -372,11 +380,11 @@ rabbit-pistol-carrot</pre
 
       <div id="story-scenario-example" class="slide small">
         <div>
-          <h2>Scenario example</h2>
+          <h2>Scenario</h2>
           <ul>
             <li>Fatima and Harry play the game</li>
             <li>Fatima plays rock, Harry plays scissors</li>
-            <li>Fatima wins and Harry loses.</li>
+            <li>Fatima wins and Harry loses</li>
           </ul>
         </div>
       </div>
@@ -409,30 +417,30 @@ rabbit-pistol-carrot</pre
       <div id="up-to-date" class="slide">
         <div>
           <h1>Scenario's are always up to date</h1>
-          <p>But we really need to test them automatically</p>
+          <p>But we really need to test them automatically 🤖</p>
         </div>
       </div>
 
       <div id="living-documentation" class="slide">
         <div>
           <h1>Scenario's are living documentation</h1>
-          <p>But we really need to test them automatically</p>
+          <p>But we really need to test them automatically 🤖</p>
         </div>
       </div>
 
       <div id="single-source-of-truth" class="slide">
         <div>
           <h1>Scenario's are a single source of truth</h1>
-          <p>But we really need to test them automatically</p>
+          <p>But we really need to test them automatically 🤖</p>
         </div>
       </div>
 
       <div id="automated-testing" class="slide">
         <div>
-          <h2>Automated testing was a good idea anyway</h2>
+          <h2>🤖 Automated testing was a good idea anyway</h2>
           <ul>
             <li>Manual testing is not testing</li>
-            <li>Testing > coding</li>
+            <li>Testing &gt; Coding</li>
           </ul>
         </div>
       </div>
@@ -460,9 +468,12 @@ rabbit-pistol-carrot</pre
         </div>
       </div>
 
-      <div id="story-scenario-example-remember" class="slide small">
+      <div
+        id="story-scenario-example-remember"
+        class="slide gradient-background small"
+      >
         <div>
-          <h2>Scenario example (remember?)</h2>
+          <h2>Scenario (remember?)</h2>
           <ul>
             <li>Fatima and Harry play the game</li>
             <li>Fatima plays rock, Harry plays scissors</li>
@@ -471,12 +482,15 @@ rabbit-pistol-carrot</pre
         </div>
       </div>
 
-      <div id="story-gherkin-scenario-example" class="slide small">
+      <div
+        id="story-gherkin-scenario-example"
+        class="slide gradient-background small"
+      >
         <div>
-          <h2>Gherkin scenario example</h2>
+          <h2>Gherkin scenario</h2>
           <pre>
 Scenario: Rock beats scissors
-  Given Fatima and Harry play
+  Given Fatima and Harry play a game
   When Fatima plays rock
   And Harry plays scissors
   Then Fatima should win
@@ -486,13 +500,18 @@ Scenario: Rock beats scissors
         </div>
       </div>
 
-      <div id="showtime" class="slide">
+      <div id="showtime" class="slide text-center">
         <div>
-          <h1>Showtime!</h1>
+          <h1>Showtime 🚀</h1>
+          <pre>
+github.com/
+The-Computerclub/
+rabbit-pistol-carrot</pre
+          >
         </div>
       </div>
 
-      <div id="rabbit-pistol-carrot" class="slide">
+      <div id="rabbit-pistol-carrot" class="slide gradient-background">
         <div>
           <p>We make a variation</p>
           <ul>
