@@ -5,7 +5,7 @@ When playing with three people, then everyone should play at least once to each 
     Given David, John and Khalil play the game
 
   Scenario Outline: Khalil wins
-    And David plays <David 1>
+    When David plays <David 1>
     And John plays <John 1>
     And John plays <John 2>
     And Khalil plays <Khalil 2>
