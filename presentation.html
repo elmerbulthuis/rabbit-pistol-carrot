@@ -20,7 +20,6 @@
     <style>
       html {
         height: 100%;
-        text-align: justify;
       }
 
       body {
@@ -31,33 +30,40 @@
     </style>
 
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+      html {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        font-size: 6vw;
+        line-height: 1;
+      }
+    </style>
+
+    <style>
       html {
         background-color: black;
         color: white;
-        font-family: sans-serif;
-        font-size: 6vw;
-        line-height: 0.9;
-        text-wrap: balance;
       }
 
       h1 {
         font-weight: bold;
         font-size: 180%;
-        text-align: center;
         margin: 1vw;
         padding: 0;
       }
       h2 {
         font-weight: bold;
         font-size: 140%;
-        text-align: center;
         margin: 1vw;
         padding: 0;
       }
       h3 {
         font-weight: bold;
         font-size: 100%;
-        text-align: center;
         margin: 1vw;
         padding: 0;
       }
@@ -119,6 +125,10 @@
         background-color: #222;
       }
 
+      .text-center {
+        text-align: center;
+      }
+
       .luvdasun-background {
         background: linear-gradient(
           180deg,
@@ -131,6 +141,17 @@
           var(--luvdasun-color-4) 60%,
           var(--luvdasun-color-4) 80%,
           var(--luvdasun-color-5) 80%,
+          var(--luvdasun-color-5) 100%
+        );
+      }
+
+      .gradient-background {
+        background: linear-gradient(
+          180deg,
+          var(--luvdasun-color-1) 0%,
+          var(--luvdasun-color-2) 25%,
+          var(--luvdasun-color-3) 50%,
+          var(--luvdasun-color-4) 75%,
           var(--luvdasun-color-5) 100%
         );
       }
@@ -186,7 +207,7 @@
 
   <body>
     <div class="slide-container">
-      <div id="welcome" class="slide">
+      <div id="welcome" class="slide text-center">
         <div>
           <h1>🥕🐰🔫</h1>
           <h1>Welcome!</h1>
@@ -205,14 +226,14 @@
         </div>
       </div>
 
-      <div id="title" class="slide luvdasun-background">
+      <div id="title" class="slide text-center">
         <div>
           <h1>Specification by Example (SbE)</h1>
           <h3>Bridging the gap between product and development</h3>
         </div>
       </div>
 
-      <div id="who-are-you" class="slide">
+      <div id="who-are-you" class="slide gradient-background">
         <div>
           <h1>Who are you?</h1>
           <ul>
@@ -242,23 +263,116 @@
             <li>🔫 Pistol</li>
             <li>🥕 Carrot</li>
           </ul>
-          <p>Clear rules for three people</p>
+          <p>Clear rules for three people, documented via SbE</p>
         </div>
       </div>
 
-      <div id="but-first" class="slide">
+      <div id="the-gap" class="slide">
+        <div>
+          <h1>The gap</h1>
+          <ul>
+            <li>Epic</li>
+            <li>Feature</li>
+            <li>Story</li>
+            <li>&hellip;</li>
+            <li>Implementation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="story-example" class="slide">
+        <div>
+          <h1>Story example</h1>
+          <p>
+            As a person I want to play with two others so that we have a fair
+            way of settling a disagreement between us.
+          </p>
+        </div>
+      </div>
+
+      <div id="the-gap-closed" class="slide">
+        <div>
+          <ul>
+            <li>The gap is closed in meetings</li>
+            <li>Requirements are written</li>
+            <li>Specifications are made</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="what-is-the-gap" class="slide">
+        <div>
+          <h1>What is the gap?</h1>
+          <p>
+            There is a gap between user stories and the actual implementation.
+            This gap could be closed via SbE.
+          </p>
+          <p>
+            Enrich the user stories with concrete examples that can be turned
+            into automated tests. These examples become a single source of truth
+            that is very difficult to misunderstand. Because they can be testes
+            automatically they are always up to date.
+          </p>
+        </div>
+      </div>
+
+      <div id="but-first" class="slide text-center">
         <div>
           <h1>But first!</h1>
           <p>Let's talk about testing</p>
+          <p>Because a test is a specification!</p>
         </div>
       </div>
 
-      <div id="what-is-testing" class="slide">
+      <div id="testing-why" class="slide">
         <div>
-          <h1>Testing ❤️</h1>
+          <h1>Why testing?</h1>
           <ul>
             <li>Testing > Coding</li>
             <li>A test is a specification</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="this-is-a-test" class="slide">
+        <div>
+          <h1>This is a test!</h1>
+          <ul>
+            <li>Arrange Act Assert</li>
+            <li>Test one thing</li>
+            <li>What are we testing exactly</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="this-is-a-sbe-test" class="slide">
+        <div>
+          <h1>This is a SbE test!</h1>
+          <ul>
+            <li>Given When Then</li>
+            <li>Test one thing</li>
+            <li>What are we testing exactly</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="keywords" class="slide">
+        <div>
+          <ul>
+            <li>What are we testing exactly</li>
+            <li>Arrange Act Assert</li>
+            <li>Stable conditions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="testing-how" class="slide">
+        <div>
+          <h1>Anatony of a (good) test</h1>
+          <ul>
+            <li>What are we testing exactly</li>
+            <li>Arrange Act Assert</li>
+            <li>Stable conditions</li>
             <li>Manual testing is not real</li>
           </ul>
         </div>
@@ -291,7 +405,42 @@
         </div>
       </div>
 
-      <div id="thank-you" class="slide">
+      <div id="specification-by-example" class="slide luvdasun-background">
+        <div>
+          <h1>Specification by Example (SbE)</h1>
+          <ul>
+            <li>Collaboration between business and IT</li>
+            <li>Concrete examples</li>
+            <li>Living documentation</li>
+            <li>Automated tests</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="sbe-pitfalls" class="slide">
+        <div>
+          <h1>Some pitfalls</h1>
+          <ul>
+            <li>Test more than one thing</li>
+            <li>Not testing behavior</li>
+            <li>Maintenance</li>
+            <li>Technical debt!</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="assignment" class="slide">
+        <div>
+          <h1>Pick your assignment</h1>
+          <ul>
+            <li>Make the game more generic</li>
+            <li>Create new rules for the game</li>
+            <li>Implement those rules</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="thank-you" class="slide text-center luvdasun-background">
         <div>
           <h1>Thank you!</h1>
           <p>@elmerbulthuis</p>

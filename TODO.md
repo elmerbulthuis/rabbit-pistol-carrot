@@ -1,2 +1,0 @@
-- [ ] sync presentation with hash
-- [ ] make presentation css-only
