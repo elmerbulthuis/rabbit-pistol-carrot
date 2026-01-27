@@ -78,6 +78,17 @@
         padding: 0;
         padding-left: 1em;
       }
+      pre {
+        font-weight: normal;
+        font-size: 100%;
+        margin: 1vw;
+        padding: 1vw;
+        background-color: #333;
+        border-radius: 1vw;
+        border-color: #444;
+        border-style: solid;
+        border-width: 2px;
+      }
     </style>
 
     <style>
@@ -127,6 +138,10 @@
 
       .text-center {
         text-align: center;
+      }
+
+      .small {
+        font-size: 70%;
       }
 
       .luvdasun-background {
@@ -207,22 +222,17 @@
 
   <body>
     <div class="slide-container">
+      <div id="luvdasun-logo" class="slide luvdasun-background"></div>
+
       <div id="welcome" class="slide text-center">
         <div>
           <h1>🥕🐰🔫</h1>
           <h1>Welcome!</h1>
-        </div>
-      </div>
-
-      <div id="about-me" class="slide luvdasun-background">
-        <div>
-          <ul>
-            <li>Elmer Bulthuis</li>
-            <li>LuvDaSun</li>
-            <li>Software</li>
-            <li>Infrastructure</li>
-            <li>35+ years</li>
-          </ul>
+          <pre>
+github.com/
+The-Computerclub/
+rabbit-pistol-carrot</pre
+          >
         </div>
       </div>
 
@@ -233,13 +243,86 @@
         </div>
       </div>
 
-      <div id="who-are-you" class="slide gradient-background">
+      <div id="who-are-you" class="slide">
         <div>
           <h1>Who are you?</h1>
           <ul>
             <li>Experience</li>
             <li>Personal thing</li>
             <li>Role</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="about-me" class="slide gradient-background">
+        <div>
+          <ul>
+            <li>Elmer Bulthuis</li>
+            <li>LuvDaSun</li>
+            <li>Software</li>
+            <li>Infrastructure</li>
+            <li>Two kids</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="the-gap" class="slide gradient-background">
+        <div>
+          <h1>The gap?</h1>
+        </div>
+      </div>
+
+      <div id="the-gap-1" class="slide gradient-background">
+        <div>
+          <h1>The gap?</h1>
+          <ul>
+            <li>Epic</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="the-gap-2" class="slide gradient-background">
+        <div>
+          <h1>The gap?</h1>
+          <ul>
+            <li>Epic</li>
+            <li>Feature</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="the-gap-3" class="slide gradient-background">
+        <div>
+          <h1>The gap?</h1>
+          <ul>
+            <li>Epic</li>
+            <li>Feature</li>
+            <li>Story</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="the-gap-4" class="slide gradient-background">
+        <div>
+          <h1>The gap!</h1>
+          <ul>
+            <li>Epic</li>
+            <li>Feature</li>
+            <li>Story</li>
+            <li>🕳️</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="the-gap-5" class="slide gradient-background">
+        <div>
+          <h1>The gap!</h1>
+          <ul>
+            <li>Epic</li>
+            <li>Feature</li>
+            <li>Story</li>
+            <li>🕳️</li>
+            <li>Implementation</li>
           </ul>
         </div>
       </div>
@@ -255,6 +338,154 @@
         </div>
       </div>
 
+      <div id="story-example" class="slide small">
+        <div>
+          <h2>Story example</h2>
+          <p>
+            As a person in disagreement I want to play the game with the other
+            person so that we have a fair way of settling our disagreement.
+          </p>
+        </div>
+      </div>
+
+      <div id="story-detail-example" class="slide small">
+        <div>
+          <h2>Story detail example</h2>
+          <p>
+            Each player picks a symbol. The player that picks the symbol that
+            trumps the other wins. Rock trumps scissors, scissors trumps paper,
+            paper trumps rock. If they both pick the same then it's a tie and
+            they play again until there is a winner.
+          </p>
+        </div>
+      </div>
+
+      <div id="gap-why" class="slide small">
+        <div>
+          <h2>Gap why?</h2>
+          <ul>
+            <li>Cannot be tested directly</li>
+            <li>Easy to misunderstand</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="story-scenario-example" class="slide small">
+        <div>
+          <h2>Scenario example</h2>
+          <ul>
+            <li>Fatima and Harry play the game</li>
+            <li>Fatima plays rock, Harry plays scissors</li>
+            <li>Fatima wins and Harry loses.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="no-gap" class="slide gradient-background">
+        <div>
+          <h1>No gap!</h1>
+          <ul>
+            <li>Epic</li>
+            <li>Feature</li>
+            <li>Story</li>
+            <li>Scenarios 🍾</li>
+            <li>Implementation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="scenarios" class="slide gradient-background">
+        <div>
+          <h1>Scenarios 🍾</h1>
+          <ul>
+            <li>Easy to understand by all stakeholders</li>
+            <li>Easy to verify</li>
+            <li>Unambiguous</li>
+            <li>They are examples</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="up-to-date" class="slide">
+        <div>
+          <h1>Scenario's are always up to date</h1>
+          <p>But we really need to test them automatically</p>
+        </div>
+      </div>
+
+      <div id="living-documentation" class="slide">
+        <div>
+          <h1>Scenario's are living documentation</h1>
+          <p>But we really need to test them automatically</p>
+        </div>
+      </div>
+
+      <div id="single-source-of-truth" class="slide">
+        <div>
+          <h1>Scenario's are a single source of truth</h1>
+          <p>But we really need to test them automatically</p>
+        </div>
+      </div>
+
+      <div id="automated-testing" class="slide">
+        <div>
+          <h2>Automated testing was a good idea anyway</h2>
+          <ul>
+            <li>Manual testing is not testing</li>
+            <li>Testing > coding</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="testing-101" class="slide">
+        <div>
+          <h1>Testing 101</h1>
+          <ul>
+            <li>Arrange, Act, Assert</li>
+            <li>Test one thing only</li>
+            <li>What are we testing?</li>
+            <li>Test often!</li>
+            <li>A test is a specification</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="introducing-gherking" class="slide">
+        <div>
+          <h1>Introducing Gherkin 🥒</h1>
+          <ul>
+            <li>Given, When, Then</li>
+            <li>Human readable</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="story-scenario-example-remember" class="slide small">
+        <div>
+          <h2>Scenario example (remember?)</h2>
+          <ul>
+            <li>Fatima and Harry play the game</li>
+            <li>Fatima plays rock, Harry plays scissors</li>
+            <li>Fatima wins and Harry loses.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="story-gherkin-scenario-example" class="slide small">
+        <div>
+          <h2>Gherkin scenario example</h2>
+          <pre>
+Scenario: Rock beats scissors
+  Given Fatima and Harry play
+  When Fatima plays rock
+  And Harry plays scissors
+  Then Fatima should win
+  And Harry should lose
+</pre
+          >
+        </div>
+      </div>
+
       <div id="rabbit-pistol-carrot" class="slide">
         <div>
           <p>We make a variation</p>
@@ -264,156 +495,6 @@
             <li>🥕 Carrot</li>
           </ul>
           <p>Clear rules for three people, documented via SbE</p>
-        </div>
-      </div>
-
-      <div id="the-gap" class="slide">
-        <div>
-          <h1>The gap</h1>
-          <ul>
-            <li>Epic</li>
-            <li>Feature</li>
-            <li>Story</li>
-            <li>&hellip;</li>
-            <li>Implementation</li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="story-example" class="slide">
-        <div>
-          <h1>Story example</h1>
-          <p>
-            As a person I want to play with two others so that we have a fair
-            way of settling a disagreement between us.
-          </p>
-        </div>
-      </div>
-
-      <div id="the-gap-closed" class="slide">
-        <div>
-          <ul>
-            <li>The gap is closed in meetings</li>
-            <li>Requirements are written</li>
-            <li>Specifications are made</li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="what-is-the-gap" class="slide">
-        <div>
-          <h1>What is the gap?</h1>
-          <p>
-            There is a gap between user stories and the actual implementation.
-            This gap could be closed via SbE.
-          </p>
-          <p>
-            Enrich the user stories with concrete examples that can be turned
-            into automated tests. These examples become a single source of truth
-            that is very difficult to misunderstand. Because they can be testes
-            automatically they are always up to date.
-          </p>
-        </div>
-      </div>
-
-      <div id="but-first" class="slide text-center">
-        <div>
-          <h1>But first!</h1>
-          <p>Let's talk about testing</p>
-          <p>Because a test is a specification!</p>
-        </div>
-      </div>
-
-      <div id="testing-why" class="slide">
-        <div>
-          <h1>Why testing?</h1>
-          <ul>
-            <li>Testing > Coding</li>
-            <li>A test is a specification</li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="this-is-a-test" class="slide">
-        <div>
-          <h1>This is a test!</h1>
-          <ul>
-            <li>Arrange Act Assert</li>
-            <li>Test one thing</li>
-            <li>What are we testing exactly</li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="this-is-a-sbe-test" class="slide">
-        <div>
-          <h1>This is a SbE test!</h1>
-          <ul>
-            <li>Given When Then</li>
-            <li>Test one thing</li>
-            <li>What are we testing exactly</li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="keywords" class="slide">
-        <div>
-          <ul>
-            <li>What are we testing exactly</li>
-            <li>Arrange Act Assert</li>
-            <li>Stable conditions</li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="testing-how" class="slide">
-        <div>
-          <h1>Anatony of a (good) test</h1>
-          <ul>
-            <li>What are we testing exactly</li>
-            <li>Arrange Act Assert</li>
-            <li>Stable conditions</li>
-            <li>Manual testing is not real</li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="testing-over-coding" class="slide">
-        <div>
-          <h2>Testing > Coding</h2>
-          <p>
-            If you have good tests and bad code then you'll know that. If you
-            have good code but bad tests you don't know.
-          </p>
-        </div>
-      </div>
-
-      <div id="test-is-specification" class="slide">
-        <div>
-          <h2>A test is a specification</h2>
-        </div>
-      </div>
-
-      <div id="manual-testing-is-not-real" class="slide">
-        <div>
-          <h2>Manual testing is not real</h2>
-          <ul>
-            <li>Humans are not stable</li>
-            <li>And it takes a lot of time!</li>
-            <li>In practice it can be useful</li>
-          </ul>
-        </div>
-      </div>
-
-      <div id="specification-by-example" class="slide luvdasun-background">
-        <div>
-          <h1>Specification by Example (SbE)</h1>
-          <ul>
-            <li>Collaboration between business and IT</li>
-            <li>Concrete examples</li>
-            <li>Living documentation</li>
-            <li>Automated tests</li>
-          </ul>
         </div>
       </div>
 
@@ -433,9 +514,8 @@
         <div>
           <h1>Pick your assignment</h1>
           <ul>
-            <li>Make the game more generic</li>
-            <li>Create new rules for the game</li>
-            <li>Implement those rules</li>
+            <li>Implement three player rules</li>
+            <li>Alternative three player rules</li>
           </ul>
         </div>
       </div>
