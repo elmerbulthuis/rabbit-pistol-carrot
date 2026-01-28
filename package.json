@@ -7,6 +7,7 @@
     "tsc-watch": "npm run tsc -- --watch",
     "test": "node --test transpiled/**/*.test.js",
     "test-sbe": "cucumber-js features",
+    "coverage": "c8 --reporter lcov --reporter text-summary --check-coverage npm exec -c 'npm test ; npm run test-sbe || true'",
     "spelling": "cspell",
     "formatting": "prettier --check --ignore-unknown *",
     "fix-formatting": "prettier --write --ignore-unknown *"
@@ -15,6 +16,7 @@
     "@cspell/dict-en_us": "^4.4.27",
     "@cucumber/cucumber": "^12.6.0",
     "@tsconfig/node24": "^24.0.4",
+    "c8": "^10.1.3",
     "cspell": "^9.6.0",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3"

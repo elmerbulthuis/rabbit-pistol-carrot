@@ -6,7 +6,7 @@ export class TwoPlayerGame {
   private readonly results = new Array<TwoPlayerGameResult>();
 
   public reset(): void {
-    // Reset any game state if necessary
+    this.results.splice(0, this.results.length);
   }
 
   public playRound(firstChoice: GameChoice, secondChoice: GameChoice): void {
