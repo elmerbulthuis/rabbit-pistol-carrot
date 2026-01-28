@@ -4,12 +4,12 @@ Feature: Carrot Pistol Rabbit rules with two players playing three rounds
     Given George and Harry play the game
 
   Scenario Outline: George wins
-    When George plays <George choice 1>
-    And Harry plays <Harry choice 1>
-    And George plays <George choice 2>
-    And Harry plays <Harry choice 2>
-    And George plays <George choice 3>
-    And Harry plays <Harry choice 3>
+    When George picks <George choice 1>
+    And Harry picks <Harry choice 1>
+    And George picks <George choice 2>
+    And Harry picks <Harry choice 2>
+    And George picks <George choice 3>
+    And Harry picks <Harry choice 3>
     Then George should win
     And Harry should lose
 
@@ -20,12 +20,12 @@ Feature: Carrot Pistol Rabbit rules with two players playing three rounds
       | pistol          | rabbit         | rabbit          | pistol         | pistol          | rabbit         |
 
   Scenario Outline: Harry wins
-    When George plays <George choice 1>
-    And Harry plays <Harry choice 1>
-    And George plays <George choice 2>
-    And Harry plays <Harry choice 2>
-    And George plays <George choice 3>
-    And Harry plays <Harry choice 3>
+    When George picks <George choice 1>
+    And Harry picks <Harry choice 1>
+    And George picks <George choice 2>
+    And Harry picks <Harry choice 2>
+    And George picks <George choice 3>
+    And Harry picks <Harry choice 3>
     Then George should lose
     And Harry should win
 
@@ -36,12 +36,12 @@ Feature: Carrot Pistol Rabbit rules with two players playing three rounds
       | rabbit          | rabbit         | carrot          | rabbit         | carrot          | carrot         |
 
   Scenario Outline: Draw
-    When George plays <George choice 1>
-    And Harry plays <Harry choice 1>
-    And George plays <George choice 2>
-    And Harry plays <Harry choice 2>
-    And George plays <George choice 3>
-    And Harry plays <Harry choice 3>
+    When George picks <George choice 1>
+    And Harry picks <Harry choice 1>
+    And George picks <George choice 2>
+    And Harry picks <Harry choice 2>
+    And George picks <George choice 3>
+    And Harry picks <Harry choice 3>
     Then the game should be a draw
 
     Examples:
