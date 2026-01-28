@@ -1,0 +1,562 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>🥕🐰🔫</title>
+
+    <style>
+      :root {
+        --luvdasun-color-1: #ec003d;
+        --luvdasun-color-2: #c1003d;
+        --luvdasun-color-3: #a2003d;
+        --luvdasun-color-4: #87003d;
+        --luvdasun-color-5: #71003d;
+      }
+    </style>
+
+    <style>
+      html {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+    </style>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Inconsolata&family=Open+Sans&display=swap");
+
+      html {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+      }
+
+      pre {
+        font-family: "Inconsolata", monospace;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+      }
+    </style>
+
+    <style>
+      html {
+        background-color: black;
+        color: white;
+        font-size: 6vw;
+        line-height: 1;
+      }
+
+      h1 {
+        font-weight: bold;
+        font-size: 180%;
+        margin: 1vw;
+        padding: 0;
+        line-height: 0.9;
+      }
+      h2 {
+        font-weight: bold;
+        font-size: 140%;
+        margin: 1vw;
+        padding: 0;
+        line-height: 0.9;
+      }
+      h3 {
+        font-weight: bold;
+        font-size: 100%;
+        margin: 1vw;
+        padding: 0;
+        line-height: 1;
+      }
+      p {
+        font-weight: normal;
+        font-size: 100%;
+        margin: 1vw;
+        padding: 0;
+        line-height: 1;
+      }
+      ul {
+        margin: 1vw;
+        padding: 0;
+        padding-left: 1em;
+        line-height: 1;
+      }
+      pre {
+        margin: 1vw;
+        padding: 1vw;
+        line-height: 1;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 1vw;
+        border-color: rgba(255, 255, 255, 0.2);
+        border-style: solid;
+        border-width: 2px;
+      }
+    </style>
+
+    <style>
+      html.loaded {
+        scroll-behavior: smooth;
+        overflow: hidden;
+      }
+
+      .slide-container {
+        display: none;
+      }
+
+      .slide-container:has(.slide:target) {
+        display: flex;
+        height: 100%;
+      }
+
+      .slide {
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .slide > div {
+        padding: 10vw;
+      }
+    </style>
+
+    <style>
+      .slide > div {
+        transition: filter 600ms ease-out;
+        filter: blur(2vw);
+      }
+
+      .slide:target > div {
+        filter: blur(0);
+      }
+    </style>
+
+    <style>
+      .slide {
+        background-color: #222;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .small {
+        font-size: 80%;
+      }
+
+      .luvdasun-background {
+        background: linear-gradient(
+          180deg,
+          var(--luvdasun-color-1) 0%,
+          var(--luvdasun-color-1) 20%,
+          var(--luvdasun-color-2) 20%,
+          var(--luvdasun-color-2) 40%,
+          var(--luvdasun-color-3) 40%,
+          var(--luvdasun-color-3) 60%,
+          var(--luvdasun-color-4) 60%,
+          var(--luvdasun-color-4) 80%,
+          var(--luvdasun-color-5) 80%,
+          var(--luvdasun-color-5) 100%
+        );
+      }
+
+      .gradient-background {
+        background: linear-gradient(
+          180deg,
+          var(--luvdasun-color-1) 0%,
+          var(--luvdasun-color-2) 25%,
+          var(--luvdasun-color-3) 50%,
+          var(--luvdasun-color-4) 75%,
+          var(--luvdasun-color-5) 100%
+        );
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (location.hash === "") {
+          const id = document.querySelector(".slide-container .slide")?.id;
+          if (id != null) {
+            location.hash = id;
+          }
+        }
+      });
+    </script>
+
+    <script>
+      window.addEventListener("load", () => {
+        document.documentElement.classList.add("loaded");
+      });
+    </script>
+
+    <script>
+      document.addEventListener("keydown", async (event) => {
+        await document.documentElement.requestFullscreen({
+          navigationUI: "hide",
+        });
+
+        switch (event.key) {
+          case "ArrowRight": {
+            const id = document.querySelector(
+              ".slide-container .slide:target + .slide",
+            )?.id;
+            if (id != null) {
+              location.hash = id;
+            }
+            break;
+          }
+
+          case "ArrowLeft": {
+            const id = document.querySelector(
+              ".slide-container .slide:has(+ .slide:target)",
+            )?.id;
+            if (id != null) {
+              location.hash = id;
+            }
+            break;
+          }
+        }
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="slide-container">
+      <div id="luvdasun-logo" class="slide luvdasun-background"></div>
+
+      <div id="welcome" class="slide text-center">
+        <div>
+          <h1>🥕🐰🔫</h1>
+          <h1>Welcome!</h1>
+          <pre>
+github.com/
+The-Computerclub/
+rabbit-pistol-carrot</pre
+          >
+        </div>
+      </div>
+
+      <div id="title" class="slide text-center">
+        <div>
+          <h1>Specification by Example (SbE)</h1>
+          <h3>Bridging the gap between product and development</h3>
+        </div>
+      </div>
+
+      <div id="who-are-you" class="slide">
+        <div>
+          <h1>Who are you?</h1>
+          <ul>
+            <li>Experience</li>
+            <li>Role</li>
+            <li>Personal thing</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="about-me" class="slide gradient-background">
+        <div>
+          <ul>
+            <li>Elmer Bulthuis</li>
+            <li>LuvDaSun</li>
+            <li>Software</li>
+            <li>Infrastructure</li>
+            <li>Two kids</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="the-gap" class="slide gradient-background">
+        <div>
+          <h1>The gap?</h1>
+        </div>
+      </div>
+
+      <div id="the-gap-1" class="slide gradient-background">
+        <div>
+          <h1>The gap?</h1>
+          <ul>
+            <li>Epic</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="the-gap-2" class="slide gradient-background">
+        <div>
+          <h1>The gap?</h1>
+          <ul>
+            <li>Epic</li>
+            <li>Feature</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="the-gap-3" class="slide gradient-background">
+        <div>
+          <h1>The gap?</h1>
+          <ul>
+            <li>Epic</li>
+            <li>Feature</li>
+            <li>Story</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="the-gap-4" class="slide gradient-background">
+        <div>
+          <h1>The gap!</h1>
+          <ul>
+            <li>Epic</li>
+            <li>Feature</li>
+            <li>Story</li>
+            <li></li>
+            <li>Implementation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="rock-paper-scissors" class="slide">
+        <div>
+          <p>We all know this game</p>
+          <ul>
+            <li>🪨 Rock</li>
+            <li>📄 Paper</li>
+            <li>✂️ Scissors</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="story-example" class="slide small">
+        <div>
+          <h2>Story</h2>
+          <p>
+            As a person in disagreement with another I want to play the game
+            with the other person so that we have a fair way of settling our
+            disagreement.
+          </p>
+        </div>
+      </div>
+
+      <div id="story-detail-example" class="slide small">
+        <div>
+          <h2>Story detail</h2>
+          <p>
+            Each player picks a symbol. The player that picks the symbol that
+            trumps the other wins. Rock trumps scissors, scissors trumps paper,
+            paper trumps rock. If they both pick the same then it's a tie and
+            they play again until there is a winner.
+          </p>
+        </div>
+      </div>
+
+      <div id="gap-why" class="slide small">
+        <div>
+          <h2>Gap why?</h2>
+          <ul>
+            <li>Cannot be tested directly</li>
+            <li>Easy to misunderstand</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="story-scenario-example" class="slide small">
+        <div>
+          <h2>Scenario</h2>
+          <ul>
+            <li>Fatima and Harry play the game</li>
+            <li>Fatima picks rock, Harry picks scissors</li>
+            <li>Fatima wins and Harry loses</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="no-gap" class="slide gradient-background">
+        <div>
+          <h1>No gap!</h1>
+          <ul>
+            <li>Epic</li>
+            <li>Feature</li>
+            <li>Story</li>
+            <li>Scenario 🍾</li>
+            <li>Implementation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="scenario" class="slide gradient-background">
+        <div>
+          <h1>Scenario 🍾</h1>
+          <ul>
+            <li>Easy to understand by all stakeholders</li>
+            <li>Easy to verify</li>
+            <li>Unambiguous</li>
+            <li>They are examples</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="up-to-date" class="slide">
+        <div>
+          <h1>Scenario's are always up to date</h1>
+          <p>But we really need to test them automatically 🤖</p>
+        </div>
+      </div>
+
+      <div id="living-documentation" class="slide">
+        <div>
+          <h1>Scenario's are living documentation</h1>
+          <p>But we really need to test them automatically 🤖</p>
+        </div>
+      </div>
+
+      <div id="single-source-of-truth" class="slide">
+        <div>
+          <h1>Scenario's are a single source of truth</h1>
+          <p>But we really need to test them automatically 🤖</p>
+        </div>
+      </div>
+
+      <div id="automated-testing" class="slide">
+        <div>
+          <h2>🤖 Automated testing was a good idea anyway</h2>
+          <ul>
+            <li>Manual testing is not testing</li>
+            <li>Testing &gt; Coding</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="testing-101" class="slide">
+        <div>
+          <h1>Testing 101</h1>
+          <ul>
+            <li>Arrange, Act, Assert</li>
+            <li>Test one thing only</li>
+            <li>What are we testing?</li>
+            <li>Test often!</li>
+            <li>A test is a specification</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="introducing-gherkin" class="slide">
+        <div>
+          <h1>Introducing Gherkin 🥒</h1>
+          <ul>
+            <li>Given, When, Then</li>
+            <li>Human readable</li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        id="story-scenario-example-remember"
+        class="slide gradient-background small"
+      >
+        <div>
+          <h2>Scenario (remember?)</h2>
+          <ul>
+            <li>Fatima and Harry play the game</li>
+            <li>Fatima picks rock, Harry picks scissors</li>
+            <li>Fatima wins and Harry loses.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        id="story-gherkin-scenario-example"
+        class="slide gradient-background small"
+      >
+        <div>
+          <h2>Gherkin scenario</h2>
+          <pre>
+Scenario: Rock beats scissors
+  Given Fatima and Harry play a game
+  When Fatima picks rock
+  And Harry picks scissors
+  Then Fatima should win
+  And Harry should lose
+</pre
+          >
+        </div>
+      </div>
+
+      <div id="there-is-more" class="slide gradient-background">
+        <div>
+          <h1>But there is more!</h1>
+          <ul>
+            <li>Catching bugs</li>
+            <li>Regression</li>
+            <li>Safe refactoring</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="showtime" class="slide text-center">
+        <div>
+          <h1>Showtime 🚀</h1>
+          <pre>
+github.com/
+The-Computerclub/
+rabbit-pistol-carrot</pre
+          >
+        </div>
+      </div>
+
+      <div id="rabbit-pistol-carrot" class="slide gradient-background">
+        <div>
+          <p>We make a variation</p>
+          <ul>
+            <li>🐰 Rabbit</li>
+            <li>🔫 Pistol</li>
+            <li>🥕 Carrot</li>
+          </ul>
+          <p>Clear rules for three people</p>
+        </div>
+      </div>
+
+      <div id="assignment" class="slide">
+        <div>
+          <h1>Pick your assignment</h1>
+          <ul>
+            <li>Implement three player rules</li>
+            <li>Alternative three player rules</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="sbe-pitfalls" class="slide">
+        <div>
+          <h1>Some pitfalls</h1>
+          <ul>
+            <li>Test more than one thing</li>
+            <li>Not testing behavior</li>
+            <li>Maintenance</li>
+            <li>Technical debt!</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="thank-you" class="slide text-center gradient-background">
+        <div>
+          <h1>Thank you!</h1>
+          <p>@elmerbulthuis</p>
+          <p>@LuvDaSun</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
