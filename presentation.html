@@ -203,11 +203,19 @@
     </script>
 
     <script>
-      document.addEventListener("keydown", async (event) => {
-        await document.documentElement.requestFullscreen({
-          navigationUI: "hide",
-        });
+      document.addEventListener("keypress", (event) => {
+        switch (event.key) {
+          case "f":
+            document.documentElement.requestFullscreen({
+              navigationUI: "hide",
+            });
+            break;
+        }
+      });
+    </script>
 
+    <script>
+      document.addEventListener("keydown", (event) => {
         switch (event.key) {
           case "ArrowRight": {
             const id = document.querySelector(
@@ -234,7 +242,7 @@
   </head>
 
   <body>
-    <div class="slide-container">
+    <div class="slide-container" autofocus>
       <div id="luvdasun-logo" class="slide luvdasun-background"></div>
 
       <div id="welcome" class="slide text-center">
