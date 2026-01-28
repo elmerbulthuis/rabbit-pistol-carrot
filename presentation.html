@@ -63,14 +63,14 @@
         font-size: 180%;
         margin: 1vw;
         padding: 0;
-        line-height: 0.8;
+        line-height: 0.9;
       }
       h2 {
         font-weight: bold;
         font-size: 140%;
         margin: 1vw;
         padding: 0;
-        line-height: 0.8;
+        line-height: 0.9;
       }
       h3 {
         font-weight: bold;
@@ -203,11 +203,17 @@
     </script>
 
     <script>
-      document.addEventListener("keydown", async (event) => {
-        await document.documentElement.requestFullscreen({
-          navigationUI: "hide",
-        });
+      document.addEventListener("keypress", (event) => {
+        if (event.key === "f") {
+          document.documentElement.requestFullscreen({
+            navigationUI: "hide",
+          });
+        }
+      });
+    </script>
 
+    <script>
+      document.addEventListener("keydown", (event) => {
         switch (event.key) {
           case "ArrowRight": {
             const id = document.querySelector(
@@ -452,7 +458,7 @@ rabbit-pistol-carrot</pre
         </div>
       </div>
 
-      <div id="introducing-gherking" class="slide">
+      <div id="introducing-gherkin" class="slide">
         <div>
           <h1>Introducing Gherkin 🥒</h1>
           <ul>

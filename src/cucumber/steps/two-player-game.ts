@@ -15,7 +15,7 @@ Given(
 );
 
 When(
-  "{word} plays {word}",
+  "{word} picks {word}",
   (playerName: string, playerChoice: games.GameChoice) => {
     const game = hooks.getTwoPlayerGame();
     const [firstName, secondName] = hooks.getTwoPlayerNames();
