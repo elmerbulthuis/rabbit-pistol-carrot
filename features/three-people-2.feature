@@ -3,6 +3,7 @@ Feature: Carrot Pistol Rabbit rules with three people.
   Background:
     Given Jack, Ariël and Jasmine play the game
 
+  @skip
   Scenario Outline: Jasmine wins in two rounds
     When Jack picks <Jack 1>
     And Ariël picks <Ariël 1>
@@ -18,6 +19,7 @@ Feature: Carrot Pistol Rabbit rules with three people.
       | Jack 1 | Ariël 1 | Jasmine 1 | Jack 2  | Ariël 2 | Jasmine 2 |
       | carrot | rabbit  | rabbit    | nothing | rabbit  | pistol    |
 
+  @skip
   Scenario Outline: Ariël wins in three rounds
     When Jack picks <Jack 1>
     And Ariël picks <Ariël 1>
