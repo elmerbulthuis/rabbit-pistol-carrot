@@ -7,6 +7,7 @@
 
 !.gitignore
 !.editorconfig
+!.c8rc.json
 
 # directories
 

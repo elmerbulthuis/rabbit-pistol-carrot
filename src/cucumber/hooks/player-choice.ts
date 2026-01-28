@@ -2,9 +2,12 @@ import * as games from "../../games.js";
 import * as utilities from "../../utilities.js";
 import { World } from "../world.js";
 
-const storage = new WeakMap<World, Map<string, games.GameChoice>>();
+const storage = new WeakMap<World, Map<string, games.GameChoice | null>>();
 
-export function setPlayerChoice(playerName: string, choice: games.GameChoice) {
+export function setPlayerChoice(
+  playerName: string,
+  choice: games.GameChoice | null,
+) {
   const world = World.current;
   let map = storage.get(world);
   if (map == null) {
@@ -24,8 +27,7 @@ export function getPlayerChoice(playerName: string) {
   const world = World.current;
   const map = storage.get(world);
   utilities.assertDefined(map);
-  const choice = map.get(playerName);
-  utilities.assertDefined(choice);
+  const choice = map.get(playerName) ?? null;
   return choice;
 }
 

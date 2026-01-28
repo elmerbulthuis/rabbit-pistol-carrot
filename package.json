@@ -7,7 +7,7 @@
     "tsc-watch": "npm run tsc -- --watch",
     "test": "node --test transpiled/**/*.test.js",
     "test-sbe": "cucumber-js features",
-    "coverage": "c8 --reporter lcov --reporter text-summary --check-coverage npm exec -c 'npm test ; npm run test-sbe || true'",
+    "coverage": "c8 npm exec -c 'npm test ; npm run test-sbe || true'",
     "spelling": "cspell",
     "formatting": "prettier --check --ignore-unknown *",
     "fix-formatting": "prettier --write --ignore-unknown *"

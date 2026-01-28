@@ -2,14 +2,17 @@ import * as games from "../../games.js";
 import * as utilities from "../../utilities.js";
 import { World } from "../world.js";
 
-const storage = new WeakMap<World, games.TwoPlayerGame>();
+const storage = new WeakMap<
+  World,
+  games.TwoPlayerGame | games.ThreePlayerGame
+>();
 
-export function setTwoPlayerGame(game: games.TwoPlayerGame) {
+export function setGame(game: games.TwoPlayerGame | games.ThreePlayerGame) {
   const world = World.current;
   storage.set(world, game);
 }
 
-export function getTwoPlayerGame() {
+export function getGame() {
   const world = World.current;
   const result = storage.get(world);
   utilities.assertDefined(result);

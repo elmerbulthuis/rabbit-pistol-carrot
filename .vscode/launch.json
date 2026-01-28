@@ -9,7 +9,7 @@
       "args": [],
       "cwd": "${workspaceFolder}",
       "sourceMaps": true,
-      "outFiles": ["${workspaceFolder}/packages/*/transpiled/**/*.js"],
+      "outFiles": ["${workspaceFolder}/transpiled/**/*.js"],
       "preLaunchTask": "tsc-watch",
       "outputCapture": "std"
     },
@@ -22,7 +22,7 @@
       "args": ["--profile", "debug", "${file}"],
       "cwd": "${workspaceFolder}",
       "sourceMaps": true,
-      "outFiles": ["${workspaceFolder}/packages/*/transpiled/**/*.js"],
+      "outFiles": ["${workspaceFolder}//transpiled/**/*.js"],
       "preLaunchTask": "tsc-watch",
       "outputCapture": "std"
     },
@@ -34,7 +34,7 @@
       "args": ["run", "coverage"],
       "cwd": "${workspaceFolder}",
       "sourceMaps": true,
-      "outFiles": ["${workspaceFolder}/packages/*/transpiled/**/*.js"],
+      "outFiles": ["${workspaceFolder}//transpiled/**/*.js"],
       "preLaunchTask": "tsc-watch",
       "outputCapture": "std"
     }
