@@ -4,7 +4,6 @@ Feature: Carrot Pistol Rabbit rules with three people.
   Background:
     Given David, John and Khalil play the game
 
-  @skip
   Scenario Outline: Khalil wins
     When David picks "<David 1>"
     And John picks "<John 1>"
